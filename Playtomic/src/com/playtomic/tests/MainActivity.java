@@ -1,6 +1,6 @@
 package com.playtomic.tests;
 
-import com.playtomic.sample.R;
+import com.playtomic.tests.R;
 
 import android.app.Activity;
 import android.os.Bundle;

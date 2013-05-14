@@ -11,6 +11,10 @@ public class Leaderboards {
     private static String SAVE = "save";
     private static String LIST = "list";
     
+    /**
+     * Saves your score
+     * @param callback	LeaderboardSaveHandler for receiving the response and data
+     */ 
     public static void save(PlayerScore score, final LeaderboardSaveHandler handler) {
         PRequest.load(SECTION, SAVE, score, new PResponseHandler() {
         	
@@ -26,7 +30,12 @@ public class Leaderboards {
         });
     }
 
-    public static void list(JSONObject options, final LeaderboardListHandler handler) {
+    /**
+     * Fetches a high score table
+     * @param options	ListOptions of parameters
+     * @param callback	LeaderboardListHandler for receiving the response and data
+     */ 
+    public static void list(ListOptions options, final LeaderboardListHandler handler) {
     	PRequest.load(SECTION, LIST, options, new PResponseHandler() {
         	
         	@Override
@@ -43,8 +52,14 @@ public class Leaderboards {
     	});
     }
     
-    public static void saveAndList(JSONObject options, final LeaderboardListHandler handler) {
-    	PRequest.load(SECTION, SAVEANDLIST, options, new PResponseHandler() {
+    /**
+     * Saves a score and fetches the high score table with the page corresponding
+     * to the submitted score
+     * @param score		PlayerScore with score and table data
+     * @param callback	LeaderboardListHandler for receiving the response and data
+     */ 
+    public static void saveAndList(PlayerScore score, final LeaderboardListHandler handler) {
+    	PRequest.load(SECTION, SAVEANDLIST, score, new PResponseHandler() {
         	
         	@Override
         	public void onResponse(PResponse response, JSONObject data) {

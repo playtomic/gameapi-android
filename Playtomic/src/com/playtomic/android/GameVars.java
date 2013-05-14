@@ -11,6 +11,10 @@ public class GameVars {
     private static String LOAD = "load";
     private static String LOADSINGLE = "single";
     
+    /**
+     * Loads all GameVars
+     * @param callback	Handler for receiving the response and data 
+     */
     public static void load(final GameVarsHandler callback) {
     	PRequest.load(SECTION, LOAD, null, new PResponseHandler() {
 			@Override
@@ -27,6 +31,11 @@ public class GameVars {
     	});
     }        
 
+    /**
+     * Loads the specified GameVars
+     * @param name 		The name of the single GameVar you want to load
+     * @param callback	Handler for receiving the response and data 
+     */
     public static void loadSingle(String name, final GameVarsHandler callback) {
     	
     	JSONObject postdata = new JSONObject();

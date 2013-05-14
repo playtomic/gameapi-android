@@ -1,5 +1,5 @@
 /** Automatically generated file. DO NOT MODIFY */
-package com.playtomic.sample;
+package com.playtomic.tests;
 
 public final class BuildConfig {
     public final static boolean DEBUG = true;

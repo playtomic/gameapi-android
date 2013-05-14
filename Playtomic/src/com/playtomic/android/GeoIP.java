@@ -7,6 +7,10 @@ public class GeoIP {
     private static String SECTION = "geoip";
     private static String LOOKUP = "lookup";
 
+    /**
+     * Performs a lookup request of the player's country
+     * @param callback	Handler for receiving the response and data
+     */
     public static void lookup(final GeoIPHandler callback) {
 
     	PRequest.load(SECTION, LOOKUP, null, new PResponseHandler() {

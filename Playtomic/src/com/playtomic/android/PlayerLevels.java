@@ -13,6 +13,11 @@ public class PlayerLevels {
     private static String LOAD = "load";
     private static String RATE = "rate";
     
+    /**
+     * Loads the specified level
+     * @param levelid	The level to load
+     * @param callback	PlayerLevelSaveLoadHandler for receiving the response and data
+     */ 
     public static void load(String levelid, final PlayerLevelSaveLoadHandler callback) {
 
     	JSONObject postdata = new JSONObject();
@@ -41,6 +46,11 @@ public class PlayerLevels {
     	});
     }
     
+    /**
+     * Saves the level
+     * @param level		The PlayerLevel to save
+     * @param callback	PlayerLevelSaveLoadHandler for receiving the response and data
+     */ 
     public static void save(PlayerLevel level, final PlayerLevelSaveLoadHandler callback) {
 
     	PRequest.load(SECTION, SAVE, level, new PResponseHandler() {
@@ -60,6 +70,12 @@ public class PlayerLevels {
     	});
     }
     
+    /**
+     * Rates the specified level
+     * @param levelid	The level to rate
+     * @param rating	The rating between 1 and 10
+     * @param callback	PlayerLevelRateHandler for receiving the response and data
+     */ 
     public static void rate(String levelid, int rating, final PlayerLevelRateHandler callback) {
 
     	if(rating < 1 || rating > 10) {
@@ -92,7 +108,12 @@ public class PlayerLevels {
     	});	
     }
 
-    public static void list(JSONObject options, final PlayerLevelListHandler callback) {
+    /**
+     * Lists levels according to the options you set
+     * @param options	The listing options as a ListOptions or JSONObject
+     * @param callback	PlayerLevelListHandler for receiving the response and data
+     */ 
+    public static void list(ListOptions options, final PlayerLevelListHandler callback) {
     	PRequest.load(SECTION, LIST, options, new PResponseHandler() {
 			@Override
 			public void onResponse(PResponse response, JSONObject data) {		
