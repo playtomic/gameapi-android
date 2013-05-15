@@ -9,7 +9,7 @@ public class GeoIP {
 
     /**
      * Performs a lookup request of the player's country
-     * @param callback	Handler for receiving the response and data
+     * @param callback	GeoIPHandler for receiving the response and data
      */
     public static void lookup(final GeoIPHandler callback) {
 
