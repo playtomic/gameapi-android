@@ -10,10 +10,10 @@ public class PTests {
 	
 	public void start() 
 	{
-		Playtomic.initialize("testpublickey", "testprivatekey", "http://192.168.1.121:3000/");
+		Playtomic.initialize("testpublickey", "testprivatekey", "http://192.168.1.100:3000/");
 		
 		PTest.Setup ();	
-		PTestLeaderboards.rnd = PTestPlayerLevels.rnd = RND();
+		PTestLeaderboards.rnd = PTestPlayerLevels.rnd = PTestAchievements.rnd = RND();
 		
 		final TestHandler callback = new TestHandler() {
 			@Override
@@ -42,7 +42,14 @@ public class PTests {
 				new PTestMethod() { public void run() { PTestPlayerLevels.create(callback); } },
 				new PTestMethod() { public void run() { PTestPlayerLevels.list(callback); } },
 				new PTestMethod() { public void run() { PTestPlayerLevels.load(callback); } },
-				new PTestMethod() { public void run() { PTestPlayerLevels.rate(callback); } }
+				new PTestMethod() { public void run() { PTestAchievements.list(callback); } },
+                new PTestMethod() { public void run() { PTestAchievements.listWithFriends(callback); } },
+                new PTestMethod() { public void run() { PTestAchievements.listWithPlayer(callback); } },
+                new PTestMethod() { public void run() { PTestAchievements.listWithPlayerAndFriends(callback); } },
+                new PTestMethod() { public void run() { PTestAchievements.stream(callback); } },
+                new PTestMethod() { public void run() { PTestAchievements.streamWithFriends(callback); } },
+                new PTestMethod() { public void run() { PTestAchievements.streamWithPlayerAndFriends(callback); } },
+                new PTestMethod() { public void run() { PTestAchievements.save(callback); } }
 		};
 		
 		callback.done();
