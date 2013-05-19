@@ -64,7 +64,7 @@ public class PTest
 	}
 	
 	public static Boolean assertNotNull(String section, String name, String value) {
-		return assertTrue(section, name, value != null) && assertTrue(section, name, value != "");
+		return assertTrue(section, name, value != null) && assertTrue(section, name, !value.equals(""));
 	}
 	
 	public static void fail(String section, String message) {
