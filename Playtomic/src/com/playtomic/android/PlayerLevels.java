@@ -43,7 +43,7 @@ public class PlayerLevels {
 					callback.onFailure(response);
 				}
 			}
-    	});
+            	});
     }
     
     /**
@@ -67,7 +67,7 @@ public class PlayerLevels {
 					callback.onFailure(response);
 				}
 			}
-    	});
+            	});
     }
     
     /**
@@ -105,7 +105,7 @@ public class PlayerLevels {
 					callback.onFailure(response);
 				}
 			}
-    	});	
+            	});
     }
 
     /**
@@ -136,6 +136,6 @@ public class PlayerLevels {
 					callback.onFailure(response);
 				}
 			}
-    	});
+            	});
     }
 }

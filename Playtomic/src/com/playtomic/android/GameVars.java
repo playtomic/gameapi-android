@@ -10,7 +10,7 @@ public class GameVars {
     private static String SECTION = "gamevars";
     private static String LOAD = "load";
     private static String LOADSINGLE = "single";
-    
+
     /**
      * Loads all GameVars
      * @param callback	GameVarsHandler for receiving the response and data 
@@ -28,7 +28,7 @@ public class GameVars {
 					callback.onFailure(response);
 				}
 			}
-    	});
+            	});
     }        
 
     /**
@@ -46,7 +46,7 @@ public class GameVars {
     		callback.onFailure(new PResponse(false, 1));
     		return;
     	}
-    	
+
     	PRequest.load(SECTION, LOADSINGLE, postdata, new PResponseHandler() {
 			@Override
 			public void onResponse(PResponse response, JSONObject data) {		
@@ -59,7 +59,7 @@ public class GameVars {
 					callback.onFailure(response);
 				}
 			}
-    	});
+             });
     }
     
     private static Hashtable<String, Object> process(JSONObject data) { 
@@ -69,7 +69,7 @@ public class GameVars {
 	    while (keys.hasNext()) {
             String key = keys.next().toString();
             
-            if(key == "status" || key == "errorcode") {
+            if(key.equals("status") || key.equals("errorcode")) {
             	continue;
             }
             

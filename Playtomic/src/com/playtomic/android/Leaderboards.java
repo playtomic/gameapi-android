@@ -15,16 +15,16 @@ public class Leaderboards {
      * Saves your score
      * @param callback	LeaderboardSaveHandler for receiving the response and data
      */ 
-    public static void save(PlayerScore score, final LeaderboardSaveHandler handler) {
+    public static void save(PlayerScore score, final LeaderboardSaveHandler callback) {
         PRequest.load(SECTION, SAVE, score, new PResponseHandler() {
         	
         	@Override
         	public void onResponse(PResponse response, JSONObject data) {
-        		if(response.getSuccess()) {
-        			handler.onSuccess(response);
-        		} else {
-        			handler.onFailure(response);
-        		}
+            if(response.getSuccess()) {
+                callback.onSuccess(response);
+            } else {
+                callback.onFailure(response);
+            }
         	}
         	
         });
@@ -35,19 +35,19 @@ public class Leaderboards {
      * @param options	ListOptions of parameters
      * @param callback	LeaderboardListHandler for receiving the response and data
      */ 
-    public static void list(ListOptions options, final LeaderboardListHandler handler) {
+    public static void list(ListOptions options, final LeaderboardListHandler callback) {
     	PRequest.load(SECTION, LIST, options, new PResponseHandler() {
         	
         	@Override
         	public void onResponse(PResponse response, JSONObject data) {
-        		if(response.getSuccess()) {
-        			ArrayList<PlayerScore> scores = processScores(data);
-        			int numscores = data.optInt("numscores");
-        			handler.onSuccess(scores, numscores, response);
-        		} else {
-        			handler.onFailure(response);
-        		}
-        	}
+                if(response.getSuccess()) {
+                    ArrayList<PlayerScore> scores = processScores(data);
+                    int numscores = data.optInt("numscores");
+                    callback.onSuccess(scores, numscores, response);
+                } else {
+                    callback.onFailure(response);
+                }
+            }
         	
     	});
     }
@@ -58,7 +58,7 @@ public class Leaderboards {
      * @param score		PlayerScore with score and table data
      * @param callback	LeaderboardListHandler for receiving the response and data
      */ 
-    public static void saveAndList(PlayerScore score, final LeaderboardListHandler handler) {
+    public static void saveAndList(PlayerScore score, final LeaderboardListHandler callback) {
     	PRequest.load(SECTION, SAVEANDLIST, score, new PResponseHandler() {
         	
         	@Override
@@ -66,12 +66,11 @@ public class Leaderboards {
         		if(response.getSuccess()) {
         			ArrayList<PlayerScore> scores = processScores(data);
         			int numscores = data.optInt("numscores");
-        			handler.onSuccess(scores, numscores, response);
+        			callback.onSuccess(scores, numscores, response);
         		} else {
-        			handler.onFailure(response);
+        			callback.onFailure(response);
         		}
-        	}
-        	
+           	}
     	});
     }
     
@@ -82,7 +81,7 @@ public class Leaderboards {
     	
     	for(int i=0; i<scoresraw.length(); i++) {
     		JSONObject scoredata = (JSONObject) scoresraw.opt(i);
-    		PlayerScore score = new PlayerScore((JSONObject) scoredata);
+    		PlayerScore score = new PlayerScore(scoredata);
     		scores.add(score);
     	}
     	
