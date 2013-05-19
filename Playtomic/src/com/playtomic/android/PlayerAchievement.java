@@ -61,16 +61,8 @@ public class PlayerAchievement extends JSONObject {
         return friends;
     }
 
-    public String getPlayerId() {
-        return optString("playerid", "");
-    }
-
     public void setPlayerId(String playerid) {
         setValue("playerid", playerid);
-    }
-
-    public String getPlayerName() {
-        return optString("playername", "");
     }
 
     public void setPlayerName(String name) {
@@ -87,10 +79,6 @@ public class PlayerAchievement extends JSONObject {
 
     public void setAchievementKey(String name) {
         setValue("achievementkey", name);
-    }
-
-    public String getSource() {
-        return optString("source", "");
     }
 
     public void setSource(String source) {
