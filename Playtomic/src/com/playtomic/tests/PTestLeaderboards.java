@@ -19,7 +19,7 @@ public class PTestLeaderboards extends PTest
 
 		final PlayerScore score = new PlayerScore();
 		score.setTable("scores" + rnd);
-		score.setName("person1");
+		score.setPlayerName("person1");
 		score.setPoints(10000);
 		score.setHighest();
 		score.setField("rnd", rnd);
@@ -95,11 +95,11 @@ public class PTestLeaderboards extends PTest
 										callback.done();
 									}
 								});
-							};
+							}
 						});
-					};
+					}
 				});
-			};
+			}
 		});
 	}
 
@@ -109,7 +109,7 @@ public class PTestLeaderboards extends PTest
 		
 		PlayerScore score = new PlayerScore();
 		score.setTable("scores" + rnd);
-		score.setName("person2");
+		score.setPlayerName("person2");
 		score.setPoints(20000);
 		score.setHighest();
 		score.setField("rnd", rnd);
@@ -274,7 +274,7 @@ public class PTestLeaderboards extends PTest
 			
 			PlayerScore score = new PlayerScore();
 			score.setTable("friends" + rnd);
-			score.setName("playerid" + playerid);
+			score.setPlayerName("playerid" + playerid);
 			score.setPlayerId(playerid);
 			score.setPoints(points);
 			score.setHighest();
@@ -343,7 +343,7 @@ public class PTestLeaderboards extends PTest
 			points += 1000;
 			PlayerScore score = new PlayerScore();
 			score.setTable("personal" + rnd);
-			score.setName("test account");
+			score.setPlayerName("test account");
 			score.setPlayerId("test@testuri.com");
 			score.setPoints(points);
 			score.setHighest();
@@ -366,7 +366,7 @@ public class PTestLeaderboards extends PTest
 		
 		PlayerScore finalscore = new PlayerScore();
 		finalscore.setTable("personal" + rnd);
-		finalscore.setName("test account");
+		finalscore.setPlayerName("test account");
 		finalscore.setPlayerId("test@testuri.com");
 		finalscore.setPoints(3000);
 		finalscore.setHighest();

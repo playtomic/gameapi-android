@@ -37,12 +37,12 @@ public class PlayerScore extends JSONObject {
     	setValue("playerid", playerid);
     }
     
-    public String getName() {
-    	return optString("name", "");
+    public String getPlayerName() {
+    	return optString("playername", "");
     }
     
-    public void setName(String name) {
-    	setValue("name", name);
+    public void setPlayerName(String name) {
+    	setValue("playername", name);
     }
       
     public long getPoints() {
