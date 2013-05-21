@@ -362,7 +362,7 @@ public class PTestAchievements extends PTest {
                     @Override
                     public void onFailure(PResponse r2) {
                         assertFalse(section + "#2", "Request failed", r2.getSuccess());
-                        assertEquals(section + "#2", "Already had achievement errorcode", r2.getErrorCode(), 506);
+                        assertEquals(section + "#2", "Already had achievement errorcode", r2.getErrorCode(), 505);
 
                         // third save gets allowed
                         achievement.setOverwrite();
@@ -371,7 +371,7 @@ public class PTestAchievements extends PTest {
                             @Override
                             public void onSuccess(PResponse r3) {
                                 assertTrue(section + "#3", "Request succeeded", r3.getSuccess());
-                                assertEquals(section + "#3", "No errorcode", r3.getErrorCode(), 505);
+                                assertEquals(section + "#3", "No errorcode", r3.getErrorCode(), 506);
 
                                 // fourth save gets allowed
                                 achievement.remove("overwrite");
@@ -381,7 +381,7 @@ public class PTestAchievements extends PTest {
                                     @Override
                                     public void onSuccess(PResponse r4) {
                                         assertTrue(section + "#4", "Request succeeded", r4.getSuccess());
-                                        assertEquals(section + "#4", "No errorcode", r4.getErrorCode(), 505);
+                                        assertEquals(section + "#4", "No errorcode", r4.getErrorCode(), 506);
                                         callback.done();
                                     }
 
