@@ -10,7 +10,7 @@ public class PTests {
 	
 	public void start() 
 	{
-		Playtomic.initialize("testpublickey", "testprivatekey", "http://192.168.1.100:3000/");
+		Playtomic.initialize("testpublickey", "testprivatekey", "http://192.168.1.114:3000/");
 		
 		PTest.Setup ();	
 		PTestLeaderboards.rnd = PTestPlayerLevels.rnd = PTestAchievements.rnd = RND();

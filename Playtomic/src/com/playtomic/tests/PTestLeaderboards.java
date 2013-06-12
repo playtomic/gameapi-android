@@ -368,7 +368,7 @@ public class PTestLeaderboards extends PTest
 		finalscore.setTable("personal" + rnd);
 		finalscore.setPlayerName("test account");
 		finalscore.setPlayerId("test@testuri.com");
-		finalscore.setPoints(3000);
+		finalscore.setPoints(2500);
 		finalscore.setHighest();
 		finalscore.setAllowDuplicates(true);
 		finalscore.setField("rnd", rnd);
@@ -397,7 +397,8 @@ public class PTestLeaderboards extends PTest
 				assertTrue(section, "Score 5 ranked 10", scores.get(4).getRank() == 10);
 				assertTrue(section, "Score 1 points", scores.get(0).getPoints() == 4000);
 				assertTrue(section, "Score 2 points", scores.get(1).getPoints() == 3000);
-				assertTrue(section, "Score 3 points", scores.get(2).getPoints() == 3000);
+				assertTrue(section, "Score 3 points", scores.get(2).getPoints() == 2500);
+                assertTrue(section, "Score 3 submitted", scores.get(2).getSubmitted());
 				assertTrue(section, "Score 4 points", scores.get(3).getPoints() == 2000);
 				assertTrue(section, "Score 5 points", scores.get(4).getPoints() == 1000);
 				callback.done();
