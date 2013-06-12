@@ -69,6 +69,15 @@ public class PlayerScore extends JSONObject {
     	
     	return optJSONObject("fields"); 
     }
+
+    public JSONObject filters() {
+
+        if(!has("filters")) {
+            setValue("filters", new JSONObject());
+        }
+
+        return optJSONObject("filters");
+    }
     
     public void setField(String name, Object value) {
     	if(!has("fields")) {
@@ -80,6 +89,18 @@ public class PlayerScore extends JSONObject {
     	} catch(JSONException err) {
     		
     	}
+    }
+
+    public void setFilter(String name, Object value) {
+        if(!has("filters")) {
+            setValue("filters", new JSONObject());
+        }
+
+        try {
+            filters().put(name, value);
+        } catch(JSONException err) {
+
+        }
     }
     
     public String getRDate() {
@@ -115,6 +136,10 @@ public class PlayerScore extends JSONObject {
     
     public void setLowest() {
     	setValue("highest", false);
+    }
+
+    public boolean getSubmitted() {
+        return optBoolean("submitted", false);
     }
     
     public void setPerPage(int perpage) {
